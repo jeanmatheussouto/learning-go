@@ -38,22 +38,27 @@ func main() {
 	}
 }
 
+// Pile Struct
 type Pile struct {
 	values []interface{}
 }
 
+// Size return the count of itens from a slice
 func (pile Pile) Size() int {
 	return len(pile.values)
 }
 
+// Empty return a bool if Pile.Size is empty
 func (pile Pile) Empty() bool {
 	return pile.Size() == 0
 }
 
+// Stack add an item to slice
 func (pile *Pile) Stack(value interface{}) {
 	pile.values = append(pile.values, value)
 }
 
+// Unstack remove an item from slice
 func (pile *Pile) Unstack() (interface{}, error) {
 	if pile.Empty() {
 		return nil, errors.New("Empty pile")
